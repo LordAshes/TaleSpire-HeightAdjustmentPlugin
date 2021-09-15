@@ -14,7 +14,7 @@ namespace LordAshes
         // Plugin info
         public const string Name = "Height Adjust Plug-In";
         public const string Guid = "org.lordashes.plugins.heightadjust";
-        public const string Version = "1.0.0.0";
+        public const string Version = "1.2.0.0";
 
         // Configuration
         private ConfigEntry<KeyboardShortcut> triggerTransformKey { get; set; }
@@ -33,12 +33,12 @@ namespace LordAshes
         void Awake()
         {
             // Not required but good idea to log this state for troubleshooting purpose
-            UnityEngine.Debug.Log("Template Plugin: Lord Ashes Template Plugin Is Active.");
+            UnityEngine.Debug.Log("Template Plugin: Lord Ashes Hight Adjustment Plugin Is Active.");
 
             // The Config.Bind() format is category name, setting text, default
             triggerTransformKey = Config.Bind("Hotkeys", "Apply After Board Load", new KeyboardShortcut(KeyCode.T, KeyCode.RightControl));
-            triggerUpKey = Config.Bind("Hotkeys", "Adjust Mini Up", new KeyboardShortcut(KeyCode.Plus, KeyCode.LeftControl));
-            triggerDownKey = Config.Bind("Hotkeys", "Adjust Mini Down", new KeyboardShortcut(KeyCode.Minus, KeyCode.LeftControl));
+            triggerUpKey = Config.Bind("Hotkeys", "Adjust Mini Up", new KeyboardShortcut(KeyCode.KeypadPlus, KeyCode.LeftControl));
+            triggerDownKey = Config.Bind("Hotkeys", "Adjust Mini Down", new KeyboardShortcut(KeyCode.KeypadMinus, KeyCode.LeftControl));
             allowDig = Config.Bind("Settings", "Allow digging (height adjustment into the ground)", false).Value;
 
             Utility.PostOnMainPage(this.GetType());
